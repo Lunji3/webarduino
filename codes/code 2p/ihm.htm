@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.ico">
+</head>
+<body>
+    <header>
+        <div class="header-banner">
+            <h1>Controle a Distance de la Carte Arduino</h1>
+            <div class="link-boxes">
+                <div class="card link-card" style="background-color: #FF7043;">
+                    <a href="index.htm">
+                        <h3>Accueil</h3>
+                    </a>
+                </div>
+                <div class="card link-card" style="background-color: #29B6F6;">
+                    <a href="ihm.htm">
+                        <h3>Gestion</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="control-panel">
+        <div class="container-grid">
+            <!-- Section des LEDs -->
+            <div class="case led-case">
+                <h4>LEDs</h4>
+                <div class="led-container">
+                    <div class="led" id="led1"></div>
+                    <div class="led" id="led2"></div>
+                    <div class="led" id="led3"></div>
+                    <div class="led" id="led4"></div>
+                    <div class="case-text" id="led-1">1</div>
+                    <div class="case-text" id="led-2">2</div>
+                    <div class="case-text" id="led-3">3</div>
+                    <div class="case-text" id="led-4">4</div>
+                </div>
+            </div>
+    
+            <!-- Section du potentiomètre -->
+            <div class="case case-large potentiometer-case">
+                <h4>Potentiometre</h4>
+                <div class="potentiometer-container">
+                    <div class="outer-circle">
+                        <div class="inner-circle">
+                            <div class="indicator" id="indicator"></div>
+                            <div class="center-circle"></div>
+                        </div>
+                    </div>
+                    <div class="pot-value-display" id="potValue">0</div>
+                </div>
+            </div>
+    
+            <!-- Section des boutons -->
+            <div class="case button-case">
+                <h4>Boutons</h4>
+                <div class="button-container">
+                    <div class="btn" id="btn1"></div>
+                    <div class="btn" id="btn2"></div>
+                    <div class="btn" id="btn3"></div>
+                    <div class="case-text" id="btn-1">1</div>
+                    <div class="case-text" id="btn-2">2</div>
+                    <div class="case-text" id="btn-3">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-right">
+        <img src="logo.png" alt="Logo" class="logo">
+        <p class="footer-text">WebSphere</p>
+    </div>
+
+    <script src="functions.js"></script>
+</body>
+</html>

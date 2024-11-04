@@ -1,0 +1,69 @@
+//LED
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 9 as an output.
+  pinMode(9, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(9, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);              // wait for 500 milliseconds
+  digitalWrite(9, LOW);    // turn the LED off by making the voltage LOW
+  delay(500);              // wait for 500 milliseconds
+}
+
+
+//Button
+// constants won't change. They're used here to set pin numbers:
+const int BUTTON_PIN = 7; // the number of the pushbutton pin
+
+// Variables will change:
+int lastState = HIGH; // the previous state from the input pin
+int currentState;    // the current reading from the input pin
+
+void setup() {
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+  // initialize the pushbutton pin as an pull-up input
+  // the pull-up input pin will be HIGH when the switch is open and LOW when the switch is closed.
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  // read the state of the switch/button:
+  currentState = digitalRead(BUTTON_PIN);
+
+  if(lastState == LOW && currentState == HIGH)
+    Serial.println("The state changed from LOW to HIGH");
+
+  // save the last state
+  lastState = currentState;
+}
+
+
+//Potentiometer
+float floatMap(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  // read the input on analog pin A0:
+  int analogValue = analogRead(A0);
+  // Rescale to potentiometer's voltage (from 0V to 5V):
+  float voltage = floatMap(analogValue, 0, 1023, 0, 5);
+
+  // print out the value you read:
+  Serial.print("Analog: ");
+  Serial.print(analogValue);
+  Serial.print(", Voltage: ");
+  Serial.println(voltage);
+  delay(1000);
+}
